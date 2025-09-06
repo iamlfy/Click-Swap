@@ -1,0 +1,45 @@
+🎮 Game: Shuffle Puzzle
+
+A simple puzzle game implemented in C with the raylib
+ library.
+The game splits an image into tiles, shuffles them, and lets you swap adjacent tiles to restore the original picture.
+
+✨ Features
+
+Load and resize any image to fit the window.
+
+Split the image into a x*y grid.
+
+Shuffle the tiles at the beginning of the game.
+
+Click two adjacent tiles to swap them.
+
+(Optional) Detect when the puzzle is solved.
+
+🎮 How to Play
+
+The image is divided into x*y blocks and displayed in a shuffled order.
+
+Click one tile, then click an adjacent tile (left, right, up, or down).
+
+If the move is valid, the two tiles will swap.
+
+Continue until all tiles return to their original positions.
+
+💡 Invalid moves will show a warning message.
+
+🛠️ Requirements
+
+C compiler (e.g., GCC, Clang, MSVC).
+
+raylib library installed.
+
+🚀 Build & Run
+
+Compile with:
+
+gcc main.c -o puzzle -lraylib
+
+Run the game:
+
+./puzzle
