@@ -42,4 +42,4 @@ gcc main.c -o puzzle -lraylib
 
 Run the game:
 
-./puzzle
+./puzzle <imageFilePath> <widthSize> <heightSize>
