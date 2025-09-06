@@ -148,13 +148,23 @@ bool isSolved(int indices[], int len)
 	return true;
 }
 
-int main(void)
+void usage(void) {
+	printf("Usage: ./main <imageFilePath> <widthSize> <heightSize>\n");
+}
+
+int main(int argc, char* argv[])
 {
+	if (argc != 4) {
+		usage();
+		return 0;
+	}
+
+	const char* imageFilePath = argv[1];
+	const int widthSize = atoi(argv[2]);
+	const int heightSize = atoi(argv[3]);
+
 	const int screenWidth = 1200;
 	const int screenHeight = 1000;
-
-	const int widthSize = 2;
-	const int heightSize = 2;
 
 	InitWindow(screenWidth, screenHeight, "raylib [textures] example - texture source and destination rectangles");
 
@@ -168,7 +178,12 @@ int main(void)
 	// image height: 2774
 
 	// 加载图片并和当前游戏屏幕大小进行匹配
-	Image image = LoadImage("resources/pic.jpg");
+	Image image = LoadImage(imageFilePath);
+	if (image.data == NULL || image.height == 0 || image.width == 0) {
+		printf("image path [%s] invalid.\n", imageFilePath);
+		return -1;
+	}
+	
 	resizeImage(&image);
 	Texture2D texture = LoadTextureFromImage(image);
 	UnloadImage(image);
